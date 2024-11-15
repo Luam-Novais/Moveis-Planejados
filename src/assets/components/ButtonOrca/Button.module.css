@@ -1,0 +1,22 @@
+.btn{
+    color: #180E00;
+    text-decoration: none;
+    font-size: 1.125rem;
+    font-weight: 500;
+    display: flex;
+    align-content: center;
+    align-items: center;
+    background: linear-gradient( #FFC300, #FF9000);
+    max-width: fit-content;
+    border-radius: 10px;
+    padding: 10px 30px;
+    gap: 20px;
+}
+.btn:hover{
+    transition: all .4s ease-in-out;
+    background: linear-gradient( #FF9000, #FFC300);
+}
+.btn img{
+    color: #180E00;
+    height: 30px;
+}

@@ -1,0 +1,46 @@
+.Container{
+    min-height: 100vh;
+}
+.Container > h2{
+    font-family: 'poppins';
+    font-size: 2rem;
+    font-weight: 500;
+    padding: 40px 0px;
+    text-align: center;
+}
+.carrosselContainer{
+    min-height: 100vh;
+    width: 100%;
+    background-size: cover;
+    background-position:center;
+    filter: brightness(.4);
+    position: relative;
+}
+.carrosselContainer button{
+    position: absolute;
+    background-color: transparent;
+    border: none;
+    top: 50%;
+    cursor: pointer;
+}
+.carrosselContainer button i{
+    color: #eee;
+    font-size: 2rem;
+}
+.btnNext{
+    right: 30px;
+    padding: 20px;
+    transition: all .4s ease;
+}
+
+.btnNext:hover{
+    right: 0;
+}
+.btnPrev{
+    left: 30px;
+    padding: 20px;
+    transition: all .4s ease;
+}
+.btnPrev:hover{
+    left: 0;
+}

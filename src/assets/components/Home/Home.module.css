@@ -1,0 +1,42 @@
+.homeContainer{
+    min-height: 100vh;
+    background-image: url('./public/assets/bg-home.jpg');
+    background-size: cover;
+    background-position: bottom;
+    color: #fff;
+    font-family: 'poppins', sans-serif;
+    padding: 20px 60px;
+}
+.header{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;  
+}
+.header a {
+    text-decoration: none;
+    color: #fff;
+    font-weight: 500;
+    font-size: 20px;
+    width: 40px;
+}
+.header > nav{
+    display: flex;
+    gap: 20px;
+}
+.iconHeader{
+    font-size: 30px;
+}
+.content{
+    height: 100vh;
+    display: grid;
+    align-content: center;
+    gap: 30px;
+    width: 500px;
+}
+.content h2{
+    font-size: 2rem;
+    font-weight: 500;
+}
+.content h2 > span{
+    color: #FFC300;
+}
