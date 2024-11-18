@@ -1,5 +1,6 @@
 .Container{
     min-height: 100vh;
+    position: relative;
 }
 .Container > h2{
     font-family: 'poppins';
@@ -8,13 +9,24 @@
     padding: 40px 0px;
     text-align: center;
 }
-.carrosselContainer{
-    min-height: 100vh;
+.carrosselBackground{
     width: 100%;
+    height: 100%;
     background-size: cover;
     background-position:center;
-    filter: brightness(.4);
-    position: relative;
+    z-index: 1;
+}
+.overlay{
+    background-color: rgba(0, 0, 0, .6);
+}
+.carrosselContainer{
+    color: #fff;
+    display: grid;
+    min-height: 100vh;
+    height: 100%;
+    z-index: 2;
+    filter: brightness(1) !important;
+  
 }
 .carrosselContainer button{
     position: absolute;
@@ -28,7 +40,7 @@
     font-size: 2rem;
 }
 .btnNext{
-    right: 30px;
+    right: 10px;
     padding: 20px;
     transition: all .4s ease;
 }
@@ -37,10 +49,40 @@
     right: 0;
 }
 .btnPrev{
-    left: 30px;
+    left: 10px;
     padding: 20px;
     transition: all .4s ease;
 }
 .btnPrev:hover{
     left: 0;
+}
+.content{
+    filter: brightness(1) !important;
+    align-self: center;
+    padding: 100px 120px;
+}
+.content > h1{
+    color:#fff;
+    font-family: 'poppins', sans-serif;
+    font-weight: 400;
+    font-size: 2rem;
+    animation: showDown .6s forwards;    
+}
+.content > p{
+    color:#ccc;
+    width: 700px;
+    font-family: 'inter', sans-serif;
+    font-weight: 400;
+    font-size: 1rem;
+    line-height: 20px;
+    letter-spacing: .5px;
+    animation: showDown 1s forwards;
+}
+@keyframes showDown {
+    from {
+        transform: translateY(-60px);
+    }
+    to{
+        transform: translateY(0px);
+    }
 }

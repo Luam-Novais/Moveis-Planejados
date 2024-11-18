@@ -32,6 +32,7 @@
     align-content: center;
     gap: 30px;
     width: 500px;
+    animation: showDown .9s forwards;
 }
 .content h2{
     font-size: 2rem;
@@ -39,4 +40,12 @@
 }
 .content h2 > span{
     color: #FFC300;
+}
+@keyframes showDown {
+    from {
+        transform: translateY(-60px);
+    }
+    to{
+        transform: translateY(0px);
+    }
 }

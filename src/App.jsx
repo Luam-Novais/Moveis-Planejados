@@ -1,6 +1,7 @@
 import React from 'react'
 import Home from './assets/components/Home/Home'
 import { Carrossel } from './assets/components/Carrossel/Carrossel'
+import GridImages from './assets/components/GridImages/GridImages'
 
 
 const App = () => {
@@ -8,6 +9,7 @@ const App = () => {
     <div className='container'>
         <Home/>
         <Carrossel/>
+        <GridImages/>
     </div>
   )
 }

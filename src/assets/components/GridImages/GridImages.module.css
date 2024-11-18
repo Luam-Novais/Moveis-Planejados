@@ -1,0 +1,74 @@
+.container{
+    min-width: 100vw;
+    min-height: 100vh;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.container > h2{
+    font-size: 2rem;
+    font-family: poppins, sans-serif;
+    color: #000;
+    font-weight: 500;
+}
+.container > h2 > span{
+    color: #FFC300;
+}
+
+.gridContainer1{
+    display: grid;
+    grid-template-columns: 300px 300px 300px;
+    gap: 20px;
+}
+.img{
+    width: 100%;
+    object-fit: cover;
+    object-position: center;
+    margin: 0px;
+    padding: 0px;
+}
+.imgDeitada{
+    width: 620px;
+    height: 260px;
+}
+.img2{
+    grid-row: 2/3;
+}
+.imgEmPe{
+    width: 300px;
+}
+.img3{
+    grid-column: 3/4;
+    grid-row: 1/3;
+    height: 540px
+}
+.gridContainer2{
+    display: grid;
+    grid-template-columns: 300px 300px 300px;
+    gap: 20px;
+}
+.img4{
+    grid-column: 1/2;
+    grid-row: 4/6;
+}
+.imgQua{
+    width: 300px;
+    height: 300px;
+    grid-row: 4/5;
+}
+.img5{
+    grid-column: 2/3;
+}
+.img6{
+    grid-column: 3/4;
+}
+.img4{
+    grid-row: 4/6;
+    height: 580px;
+}
+.img7{
+    grid-column: 2/-1;
+    grid-row: 5/6;
+    width: 620px;
+}
