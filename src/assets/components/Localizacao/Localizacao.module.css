@@ -1,0 +1,47 @@
+.container{
+    padding: 40px 60px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    min-height: 100vh;
+    align-content: flex-start;
+    row-gap: 40px;
+}
+.container h1{
+    grid-column: 1/-1;
+    font-family: poppins, sans-serif;
+    font-weight: 500;
+    font-size: 2rem;
+}
+.container h1 span{
+    color: #FFC300;
+}
+.container #map{
+    width: 400px;
+    height: 400px;
+    background-color: #FFC300;
+    border-radius: 10px;
+}
+.funcionamento{
+    font-family: poppins, sans-serif;
+
+    max-width: max-content;
+}
+.funcionamento dt{
+    font-size: 1.25rem;
+    font-weight: 500;
+    margin-bottom: 10px;
+}
+.funcionamento dd{
+    border-bottom: 2px solid #eee;
+    max-width: 100%;
+    font-family: 'inter', sans-serif;
+    color: #3D3D3D;
+    font-size: .875rem;
+    padding-bottom: 20px;
+    margin-bottom: 20px;
+}
+.funcionamento dd i {
+    color: #FFC300;
+    font-size: 2rem;
+    text-align: center;
+}

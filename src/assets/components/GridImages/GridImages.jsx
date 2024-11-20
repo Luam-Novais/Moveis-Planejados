@@ -1,9 +1,11 @@
 import React from 'react'
 import styles from './GridImages.module.css'
+import Button from '../ButtonOrca/Button'
 
 const GridImages = () => {
   return (
     <section className={styles.container}>
+      
         <h2>Explore ideias<span>.</span></h2>
         <div className={styles.gridContainer1}>
             <img className={`${styles.img} ${styles.imgDeitada} ${styles.img1}`} src="./public/assets/grid/img-grid1.jpg" alt="" />
@@ -16,6 +18,7 @@ const GridImages = () => {
             <img className={`${styles.img} ${styles.imgQua} ${styles.img6}`} src="./public/assets/grid/img-grid6.jpg" alt="" />
             <img className={`${styles.img} ${styles.imgDeitada} ${styles.img7}`} src="./public/assets/grid/img-grid7.jpg" alt="" />
         </div>
+        <Button/>
     </section>
   )
 }

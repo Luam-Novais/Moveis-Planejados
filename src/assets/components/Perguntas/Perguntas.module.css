@@ -1,0 +1,44 @@
+.container{
+    min-height: 100vh;
+    background-color: #111;
+    font-family: poppins, sans-serif;
+    padding: 40px 60px;
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+}
+.container > h1{
+    color: #fff;
+    font-weight: 500;
+    font-size: 2rem;
+}
+.container > h1 >span{
+    color: #FFC300;
+}
+.container details{
+    transition: all .4s ease;
+    margin-bottom: 14px;
+    transition: all .4s ease;
+    cursor: pointer;
+}
+.container details summary::-webkit-details-marker{
+    display: none;
+}
+.container summary{
+    color: #fff;
+    margin-bottom: 5px;
+    font-weight: 500;
+    list-style: none;
+   
+}
+.container p{
+    color: #ccc;
+    font-family: inter, system-ui, -apple-system, 'Segoe UI', Roboto sans-serif;
+    font-size: 14px;
+    width: 400px;
+    
+}
+.container p[open]{
+    transition: all .4s ease;
+}
+

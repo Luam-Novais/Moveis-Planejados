@@ -66,11 +66,12 @@
     font-family: 'poppins', sans-serif;
     font-weight: 400;
     font-size: 2rem;
-    animation: showDown .6s forwards;    
+    margin-bottom: 20px;
+    animation: showDown .5s forwards;    
 }
 .content > p{
     color:#ccc;
-    width: 700px;
+    width: 600px;
     font-family: 'inter', sans-serif;
     font-weight: 400;
     font-size: 1rem;
