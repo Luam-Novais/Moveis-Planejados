@@ -6,3 +6,8 @@
   padding: 0px;
   box-sizing: border-box;
 }
+@media(max-width:550px){
+  h1{
+    font-size: 1.5rem;
+  }
+}

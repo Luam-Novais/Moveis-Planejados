@@ -34,7 +34,7 @@
 .container p{
     color: #ccc;
     font-family: inter, system-ui, -apple-system, 'Segoe UI', Roboto sans-serif;
-    font-size: 14px;
+    font-size: .875rem;
     width: 400px;
     
 }
@@ -42,3 +42,23 @@
     transition: all .4s ease;
 }
 
+@media(max-width: 550px){
+    .container > h1{
+        font-size: 1.5rem;
+    }
+    .container summary{
+        font-size: .875rem;
+    }
+    .container p{
+        font-size: .75rem;
+        width: 200px;
+ 
+    }
+
+}
+@media(max-width: 400px){
+    .container > h1{
+        font-size: 1.2rem;
+    }
+ 
+}

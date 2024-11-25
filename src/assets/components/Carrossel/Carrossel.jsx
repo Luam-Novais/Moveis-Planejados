@@ -40,8 +40,8 @@ export const Carrossel = () => {
   };
 
   return (
-    <section className={styles.Container}>
-      <h2>Forma que acompanha a vida.</h2>
+    <section className={styles.container}>
+      <h1>Forma que acompanha a vida.</h1>
       <div className={styles.carrosselBackground} style={{ backgroundImage: `url(${slides[index].img})` }}>
           <div className={styles.overlay}>
           <div className={styles.carrosselContainer}>

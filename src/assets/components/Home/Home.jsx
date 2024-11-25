@@ -15,10 +15,10 @@ const Home = () => {
         </nav>
        </header>
        <div className={styles.content}>
-         <h2>
+         <h1>
             Transforme seu espaço 
             com elegância e <span>Sofisticação.</span>
-        </h2>
+        </h1>
         <Button/>
        </div>
     </section>

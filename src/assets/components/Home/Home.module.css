@@ -16,7 +16,7 @@
     text-decoration: none;
     color: #fff;
     font-weight: 500;
-    font-size: 20px;
+    font-size: 1.25rem;
     width: 40px;
 }
 .header > nav{
@@ -34,11 +34,11 @@
     width: 500px;
     animation: showDown .9s forwards;
 }
-.content h2{
+.content h1{
     font-size: 2rem;
     font-weight: 500;
 }
-.content h2 > span{
+.content h1 > span{
     color: #FFC300;
 }
 @keyframes showDown {
@@ -47,5 +47,27 @@
     }
     to{
         transform: translateY(0px);
+    }
+}
+@media(max-width: 700px){
+    .header a {
+        font-size: 1rem;
+    }
+    .content{
+        width: 350px;
+    }
+    .content h1{
+        font-size: 1.5rem;
+    }
+}
+@media(max-width: 400px){
+    .header a {
+        font-size: .875rem;
+    }
+    .content{
+        width: 250px;
+    }
+    .content h1{
+        font-size: 1.2rem;
     }
 }

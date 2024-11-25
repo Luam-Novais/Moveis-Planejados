@@ -1,7 +1,7 @@
 
 import styles from './Localizacao.module.css';
-import Map from './Map';
 import { FaFacebook, FaInstagram } from 'react-icons/fa';
+import Map from './map';
 
 
 const Localizacao = () => {

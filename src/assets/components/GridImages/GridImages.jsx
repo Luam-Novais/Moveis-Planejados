@@ -6,7 +6,7 @@ const GridImages = () => {
   return (
     <section className={styles.container}>
       
-        <h2>Explore ideias<span>.</span></h2>
+        <h1>Explore ideias<span>.</span></h1>
         <div className={styles.gridContainer1}>
             <img className={`${styles.img} ${styles.imgDeitada} ${styles.img1}`} src="./public/assets/grid/img-grid1.jpg" alt="" />
             <img className={`${styles.img} ${styles.imgDeitada} ${styles.img2}`} src="./public/assets/grid/img-grid2.jpg" alt="" />
