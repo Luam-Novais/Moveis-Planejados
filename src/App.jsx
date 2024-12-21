@@ -1,9 +1,10 @@
 import React from 'react'
-import Home from './assets/components/Home/Home'
-import { Carrossel } from './assets/components/Carrossel/Carrossel'
-import GridImages from './assets/components/GridImages/GridImages'
-import Perguntas from './assets/components/Perguntas/Perguntas'
-import Localizacao from './assets/components/Localizacao/Localizacao'
+import Home from './components/Home/Home'
+import { Carrossel } from './components/Carrossel/Carrossel'
+import GridImages from './components/GridImages/GridImages'
+import Perguntas from './components/Perguntas/Perguntas'
+import Localizacao from './components/Localizacao/Localizacao'
+import Contato from './components/Contato/Contato'
 
 
 const App = () => {
@@ -13,6 +14,7 @@ const App = () => {
         <Carrossel/>
         <GridImages/>
         <Perguntas/>
+        <Contato/>
         <Localizacao/>
     </div>
   )

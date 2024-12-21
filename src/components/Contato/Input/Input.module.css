@@ -1,0 +1,21 @@
+.label{
+    display: block;
+    color: #a7a7a7;
+}
+.input{
+    width: 100%;
+    padding: 10px 15px;
+    border: none;
+    outline: none;
+    background-color: #111;
+    border-radius: 10px;
+    color: #fff;
+    transition: all .1s ease;
+}
+.input:hover{
+    border: 2.5px solid #FFC300;
+}
+.input:focus{
+    outline: 2px solid  #FF9000;
+    border: 2.5px solid #FFC300;
+}
