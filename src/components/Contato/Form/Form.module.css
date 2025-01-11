@@ -31,3 +31,8 @@
     border: none;
     cursor: pointer;
 }
+@media(max-width: 550px){
+    .container h1{
+        font-size: 1.5rem;
+    }
+}

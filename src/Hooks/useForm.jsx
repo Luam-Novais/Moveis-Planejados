@@ -14,35 +14,38 @@ const types = {
         message: 'Número inválido.'
     }
 }
+
 const useForm = (type) => {
-    const [value,setValue] = useState('')
-    const [error,setError] = useState(null)
+    const [value, setValue] = useState('')
+    const [error, setError] = useState(null)
 
     function validate(value){
         if(value.length === 0){
-            setError('Informe um valor.')
+            setError('Insira um valor.')
             return false
-        }
-        else if(!types[type].regex.test(value)){
+        }else if(types[type] && !types[type].regex.test(value)){
             setError(types[type].message)
             return false
         }else{
+
             setError(null)
             return true
         }
-    }
-
-    function handleChange({target}){
-        setValue(target.value)
-        if(error) validate(target.value)
-    }
+    }  
+        function onChange({target}){
+            setValue(target.value)
+            if(error){
+                validate(target.value)
+            }
+        }
   return {
     value, 
-    setValue, 
+    setValue,
     error, 
     setError,
-    handleChange,
-    onBlur: ({target})=> validate(target.value)
+    onChange,
+    onBlur:()=> validate(value),
+    validate:() => validate(value) 
   }
 }
 

@@ -4,9 +4,9 @@ import styles from './Form.module.css';
 import useForm from '../../../Hooks/useForm';
 
 const Form = () => {
-  const cep = useForm('cep')
-  const email = useForm('email')
-  const telefone = useForm('telefone')
+  const cep = useForm('cep');
+  const email = useForm('email');
+  const telefone = useForm('telefone');
   return (
     <div className={styles.container}>
       <h1>
@@ -16,10 +16,10 @@ const Form = () => {
         <div className={styles.fullWidth}>
           <Input id="nome" type="text" label="Nome" />
         </div>
-        <Input id="numero" type="text" label="Telefone" {...telefone}/>
-        <Input id="cep" type="text" label="CEP" {...cep}/>
+        <Input id="numero" type="text" label="Telefone" {...telefone} />
+        <Input id="cep" type="text" label="CEP" {...cep} />
         <div className={styles.fullWidth}>
-          <Input id="email" type="email" label="Email" {...email}/>
+          <Input id="email" type="email" label="Email" {...email} />
         </div>
         <button>Enviar</button>
       </form>
