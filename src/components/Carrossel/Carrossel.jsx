@@ -1,57 +1,60 @@
 import React, { useEffect, useRef, useState } from 'react';
+import gsap from 'gsap';
 import styles from './Carrossel.module.css';
 import { GrPrevious, GrNext } from 'react-icons/gr';
 import { slides } from '../../database';
 
 export const Carrossel = () => {
   const [index, setIndex] = useState(0);
+  const [direction, setDirection] = useState(1);
+  const slideRef = useRef(null);
   const tittleRef = useRef();
   const paragrafRef = useRef();
 
+  const handlePrevImg = (newDirection) => {
+    gsap.to(slideRef.current, {
+      x: -newDirection * 300,
+      opacity: 0,
+      duration: 0.5,
+      ease: 'power2.in',
+      onComplete: () => {
+        setDirection(newDirection);
+        setIndex((prevIndex) => (prevIndex - newDirection + slides.length) % slides.length);
+      },
+    });
+  };
+  const handleNextImg = (newDirection) => {
+    gsap.to(slideRef.current, {
+      x: -newDirection * 300,
+      opacity: 0,
+      duration: 0.5,
+      ease: 'power2.in',
+      onComplete: () => {
+        setDirection(newDirection);
+        setIndex((prevIndex) => (prevIndex + newDirection + slides.length) % slides.length);
+      },
+    });
+  };
   useEffect(() => {
-    // showDown 1s forwards
-    tittleRef.current.style.animation = 'showDown .6s forwards';
-    paragrafRef.current.style.animation = 'showDown 1s forwards';
-
-    const timeout = setTimeout(() => {
-      tittleRef.current.style.animation = '';
-      paragrafRef.current.style.animation = '';
-    }, 0);
-
-    return () => clearTimeout(timeout);
+    gsap.fromTo(slideRef.current, { x: direction * 300, opacity: 0, duration: 0.5, ease: 'power2.inOut' }, { x: 0, opacity: 1, duration: 0.5, ease: 'power2.inOut' });
   }, [index]);
-
-  const handlePrevImg = () => {
-    if (index > 0) {
-      setIndex((prevIndex) => prevIndex - 1);
-    } else if (index === 0) {
-      setIndex(slides.length - 1);
-    }
-  };
-  const handleNextImg = () => {
-    if (index < slides.length - 1) {
-      setIndex((prevIndex) => prevIndex + 1);
-    } else if (index === slides.length - 1) {
-      setIndex(0);
-    }
-  };
 
   return (
     <section className={styles.container}>
       <h1>Forma que acompanha a vida.</h1>
-      <div className={styles.carrosselBackground} style={{ backgroundImage: `url(${slides[index].img})` }}>
+      <div ref={slideRef} className={styles.carrosselBackground} style={{ backgroundImage: `url(${slides[index].img})` }}>
         <div className={styles.overlay}>
           <div className={styles.carrosselContainer}>
             <div className={styles.content}>
               <h1 ref={tittleRef}>{slides[index].tittle}</h1>
               <p ref={paragrafRef}>{slides[index].paragraph}</p>
             </div>
-            <button onClick={handlePrevImg} className={styles.btnPrev}>
+            <button onClick={() => handlePrevImg(-1)} className={styles.btnPrev}>
               <i>
                 <GrPrevious style={{ color: '#fff !important' }} />
               </i>
             </button>
-            <button onClick={handleNextImg} className={styles.btnNext}>
+            <button onClick={() => handleNextImg(1)} className={styles.btnNext}>
               <i>
                 <GrNext />
               </i>
