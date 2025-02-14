@@ -1,12 +1,12 @@
 
-import styles from './Localizacao.module.css';
+import styles from '../styles/Localizacao.module.css';
 import { FaFacebook, FaInstagram } from 'react-icons/fa';
-import Map from './map';
+import Map from '../components/Map/Map';
 
 
-const Localizacao = () => {
+const Localizacao = ({id}) => {
   return (
-    <section className={styles.container}>
+    <section id={id} className={styles.container}>
       <h1>
         Onde estamos <span>localizados.</span>
       </h1>

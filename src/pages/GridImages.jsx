@@ -1,10 +1,10 @@
 import React from 'react'
-import styles from './GridImages.module.css'
-import Button from '../ButtonOrca/Button'
+import styles from '../styles/GridImages.module.css'
+import Button from '../components/ButtonOrca/Button'
 
-const GridImages = () => {
+const GridImages = ({galeria}) => {
   return (
-    <section className={styles.container}>
+    <section id={galeria} className={styles.container}>
       
         <h1>Explore ideias<span>.</span></h1>
         <div className={styles.gridContainer1}>

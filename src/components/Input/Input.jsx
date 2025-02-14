@@ -1,7 +1,7 @@
 import React from 'react'
 import styles from './Input.module.css'
 
-const Input = ({ id, type, label, value, error, onChange, onBlur,  ...props}) => {
+const Input = ({ id, type, label, value, error, onChange, onBlur, ...props}) => {
   return (
     <span>
         <label className={styles.label} htmlFor={id}>{label}</label>

@@ -1,0 +1,75 @@
+.header{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.header a{
+    color: white;
+    text-decoration: none;
+    transition: all .4s ease-in-out;
+    font-size: 1.125rem;
+}
+.header a:hover{
+    color: antiquewhite;
+    transform: scale3d(2);
+}
+.logo{
+    color: white;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+.containerMenuMobile{
+    position: relative;
+}
+.buttonMenu{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    padding: 15px 20px ;
+    border-radius: 6px ;
+    outline: none;
+    border: none;
+    background-color: transparent;
+    transition: all 1s ease;
+}
+.buttonMenu i{
+    color: #fff;
+    font-size: 1.5rem;
+    font-weight: 500;
+}
+.buttonMenuActive{
+    transform: rotate(90deg);
+}
+.navDesktop{
+    display: flex;
+    gap: 20px;
+}
+.navMobile{
+    z-index: 9999;
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+    background-color: #111;
+    padding: 20px 30px;
+    border-radius: 4px;
+    opacity: 0;
+    transform: translateY(-20px);
+    right: 20px;
+
+}
+.navMobileActive{
+    opacity: 1;
+    transform: initial;
+    transition: all .4s ease;
+
+}
+.navMobile a{
+    width: 100%;
+    border-bottom: 2px solid #222;
+    font-size: 1rem;
+    padding: 5px;
+}

@@ -1,14 +1,14 @@
 import React from 'react';
 import Input from '../Input/Input';
 import styles from './Form.module.css';
-import useForm from '../../../Hooks/useForm';
+import useForm from '../../Hooks/useForm';
 
-const Form = () => {
+const Form = ({id}) => {
   const cep = useForm('cep');
   const email = useForm('email');
   const telefone = useForm('telefone');
   return (
-    <div className={styles.container}>
+    <div id={id} className={styles.container}>
       <h1>
         Entre em <span>contato</span> conosco.
       </h1>

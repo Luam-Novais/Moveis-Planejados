@@ -1,19 +1,16 @@
 import React from 'react'
-import styles from './Perguntas.module.css'
+import styles from '../styles/Perguntas.module.css'
 import { FaChevronDown } from 'react-icons/fa'
 
-const Perguntas = () => {
+const Perguntas = ({id}) => {
 
-    const handleClick = ()=>{
-        console.log('teste')
-    }
 
   return (
-    <section className={styles.container}>
+    <section id={id} className={styles.container}>
         <h1>Perguntas frequentes <span>.</span></h1>
         <table>
             <details>
-                <summary onClick={handleClick}>Qual o prazo de entrega e montagem dos Móveis Planejados?</summary>
+                <summary>Qual o prazo de entrega e montagem dos Móveis Planejados?</summary>
                 <p className={styles.hidden}>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Deserunt, ut!</p>
             </details>
             <details>

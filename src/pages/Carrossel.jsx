@@ -1,8 +1,8 @@
 import React, { useEffect, useRef, useState } from 'react';
 import gsap from 'gsap';
-import styles from './Carrossel.module.css';
+import styles from '../styles/Carrossel.module.css';
 import { GrPrevious, GrNext } from 'react-icons/gr';
-import { slides } from '../../database';
+import { slides } from '../database';
 
 export const Carrossel = () => {
   const [index, setIndex] = useState(0);
