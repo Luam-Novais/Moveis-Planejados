@@ -64,9 +64,9 @@ export const Carrossel = () => {
 
     const deltaX = touches[0].clientX - startX
     
-    if(deltaX < 50 ){
+    if(deltaX < 100 ){
       handleNextImg(1)
-    }else if(deltaX > 50){
+    }else if(deltaX > 100){
       handlePrevImg(-1)
     }
   }
