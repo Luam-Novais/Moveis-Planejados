@@ -11,6 +11,7 @@ export const Carrossel = () => {
   const tittleRef = useRef();
   const paragrafRef = useRef();
   const [startX, setStartX] = useState(0)
+  const [startY, setStartY] = useState(0)
   const [mobile, setMobile] = useState(()=>{
     const mediaQuery = window.matchMedia('(max-width:768px)')
     return mediaQuery.matches
@@ -57,31 +58,40 @@ export const Carrossel = () => {
 
   const handleTouchStart = ({touches})=>{
     setStartX(touches[0].clientX)
+    setStartY(touches[0].clientY)
   }
 
   const handleTouchMove =({touches}) =>{
-    if(startX === 0) return
+    if(startX === 0 || startY === 0) return
+
+    if(Math.abs(startY) > Math.abs(startX)) return
 
     const deltaX = touches[0].clientX - startX
     
-    if(deltaX < 100 ){
-      handleNextImg(1)
-    }else if(deltaX > 100){
+    if(deltaX > 50 ){
       handlePrevImg(-1)
+      setStartX(0)
+      setStartY(0)
+    }else if(deltaX < -50){
+      handleNextImg(1)
+      setStartX(0)
+      setStartY(0)
     }
   }
 
   const handleTouchEnd = ()=>{
     setStartX(0)
+    setStartY(0)
   }
   
   return (
     <section className={styles.container}>
       <h1>Forma que acompanha a vida.</h1>
-      <div onTouchStart={handleTouchStart}
-          onTouchMove={handleTouchMove}
-          onTouchEnd={handleTouchEnd}
-      onTou ref={slideRef} className={styles.carrosselBackground} style={{ backgroundImage: `url(${slides[index].img})` }}>
+      <div 
+      onTouchStart={handleTouchStart}
+      onTouchMove={handleTouchMove}
+      onTouchEnd={handleTouchEnd}
+      ref={slideRef} className={styles.carrosselBackground} style={{ backgroundImage: `url(${slides[index].img})` }}>
         <div className={styles.overlay}>
           <div className={styles.carrosselContainer}>
             <div className={styles.content}>

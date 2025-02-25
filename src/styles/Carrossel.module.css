@@ -99,7 +99,7 @@
         padding: 50px 70px;
     }
     .content > p{
-        width: 300px;
+        width: 100%;
         font-size: 0.875rem;
         letter-spacing: 0px;
     }
@@ -126,14 +126,6 @@
     .container h1{
         font-size: 1.2rem;
     }
-    .content{
-        padding: 30px 50px;
-    }
-    .content > p{
-        font-size: .625rem;
-        width: 250px;
-        line-height: 14px;
-    }
     .carrosselContainer button i{
         font-size: 1rem;
     }
@@ -144,12 +136,8 @@
     .container h1{
         font-size: 1rem;
     }
-    .content{
-        padding: 20px 40px;
-    }
     .content > p{
-        font-size: .625rem;
-        width: 230px;
+        font-size: .875rem;
         
     }
     .carrosselContainer button i{
