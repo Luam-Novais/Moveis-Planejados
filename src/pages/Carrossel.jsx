@@ -63,10 +63,11 @@ export const Carrossel = () => {
 
   const handleTouchMove =({touches}) =>{
     if(startX === 0 || startY === 0) return
-
-    if(Math.abs(startY) > Math.abs(startX)) return
-
     const deltaX = touches[0].clientX - startX
+    const deltaY = touches[0].clientY - startY
+
+    if(Math.abs(deltaY) > Math.abs(deltaX)) return
+
     
     if(deltaX > 50 ){
       handlePrevImg(-1)
