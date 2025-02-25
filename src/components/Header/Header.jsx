@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useRef } from 'react';
 import styles from '../Header/Header.module.css';
 import { FaHammer } from 'react-icons/fa';
 import { RxHamburgerMenu } from 'react-icons/rx';
@@ -10,15 +10,21 @@ const Header = () => {
     return mediaQuery.matches;
   });
   const [mobileMenu, setMobileMenu] = useState(false);
+  const menuContainerRef = useRef(null)
 
   const handleScroll = (sectionId) => {
     const section = document.getElementById(sectionId);
     if (section) section.scrollIntoView({ behavior: 'smooth', block: 'start' });
   };
-  const handleMobileMenu = () => {
+  const handleMobileMenu = (e) => {
+    e.stopPropagation()
     setMobileMenu(!mobileMenu);
   };
-  
+  const handleOutsideClick = (e)=>{
+    if(mobile && menuContainerRef.current && !menuContainerRef.current.contains(e.target)){
+      setMobileMenu(false)
+    }
+  }
   useEffect(() => {
     const mediaQuery = window.matchMedia('(max-width:768px)');
     const checkMedia = () => {
@@ -30,7 +36,19 @@ const Header = () => {
 
     };
   }, [mobile]);
-
+  useEffect(()=>{
+    if(mobileMenu){
+      document.addEventListener('click', handleOutsideClick)
+      document.addEventListener('touchStart', handleOutsideClick)
+    }else{
+      document.removeEventListener('click', handleOutsideClick)
+      document.removeEventListener('touchStart', handleOutsideClick)
+    }
+    return ()=>{
+      document.removeEventListener('click', handleOutsideClick)
+      document.removeEventListener('touchStart', handleOutsideClick)
+    }
+  },[mobileMenu])
   return (
     <header className={styles.header}>
       <a className={styles.logo} href="./">
@@ -39,7 +57,7 @@ const Header = () => {
           <FaHammer />
         </i>
       </a>
-      <div className={styles.containerMenuMobile}>
+      <div ref={menuContainerRef} className={styles.containerMenuMobile}>
         {mobile && (
           <button onClick={handleMobileMenu} className={`${styles.buttonMenu} ${mobileMenu && styles.buttonMenuActive}`}>
             {mobileMenu ? (
