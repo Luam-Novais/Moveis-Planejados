@@ -18,15 +18,16 @@ const Header = () => {
   const handleMobileMenu = () => {
     setMobileMenu(!mobileMenu);
   };
+  
   useEffect(() => {
     const mediaQuery = window.matchMedia('(max-width:768px)');
     const checkMedia = () => {
       setMobile(mediaQuery.matches);
     };
     window.addEventListener('resize', checkMedia);
-
     return () => {
       window.removeEventListener('resize', checkMedia);
+
     };
   }, [mobile]);
 
@@ -52,7 +53,7 @@ const Header = () => {
             )}
           </button>
         )}
-        <nav className={mobile ? `${styles.navMobile} ${mobileMenu && styles.navMobileActive}` : styles.navDesktop}>
+        <nav id='navbar' className={mobile ? `${styles.navMobile} ${mobileMenu && styles.navMobileActive}` : styles.navDesktop}>
           <a onClick={() => handleScroll('perguntas')}>Perguntas</a>
           <a onClick={() => handleScroll('contato')}>Contato</a>
           <a onClick={() => handleScroll('localizacao')}>Local</a>

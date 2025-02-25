@@ -10,7 +10,23 @@ export const Carrossel = () => {
   const slideRef = useRef(null);
   const tittleRef = useRef();
   const paragrafRef = useRef();
+  const [startX, setStartX] = useState(0)
+  const [mobile, setMobile] = useState(()=>{
+    const mediaQuery = window.matchMedia('(max-width:768px)')
+    return mediaQuery.matches
+  })
+  const handleResize = ()=>{
+    const mediaQuery = window.matchMedia('(max-width:768px)')
+    setMobile(mediaQuery.matches)
+  }
 
+  useEffect(()=>{
+    window.addEventListener('resize', handleResize)
+    return()=>{
+      window.removeEventListener('resize', handleResize)
+    }
+  },[mobile])
+  
   const handlePrevImg = (newDirection) => {
     gsap.to(slideRef.current, {
       x: -newDirection * 300,
@@ -39,26 +55,53 @@ export const Carrossel = () => {
     gsap.fromTo(slideRef.current, { x: direction * 300, opacity: 0, duration: 0.5, ease: 'power2.inOut' }, { x: 0, opacity: 1, duration: 0.5, ease: 'power2.inOut' });
   }, [index]);
 
+  const handleTouchStart = ({touches})=>{
+    setStartX(touches[0].clientX)
+  }
+
+  const handleTouchMove =({touches}) =>{
+    if(startX === 0) return
+
+    const deltaX = touches[0].clientX - startX
+    
+    if(deltaX < 50 ){
+      handleNextImg(1)
+    }else if(deltaX > 50){
+      handlePrevImg(-1)
+    }
+  }
+
+  const handleTouchEnd = ()=>{
+    setStartX(0)
+  }
+  
   return (
     <section className={styles.container}>
       <h1>Forma que acompanha a vida.</h1>
-      <div ref={slideRef} className={styles.carrosselBackground} style={{ backgroundImage: `url(${slides[index].img})` }}>
+      <div onTouchStart={handleTouchStart}
+          onTouchMove={handleTouchMove}
+          onTouchEnd={handleTouchEnd}
+      onTou ref={slideRef} className={styles.carrosselBackground} style={{ backgroundImage: `url(${slides[index].img})` }}>
         <div className={styles.overlay}>
           <div className={styles.carrosselContainer}>
             <div className={styles.content}>
               <h1 ref={tittleRef}>{slides[index].tittle}</h1>
               <p ref={paragrafRef}>{slides[index].paragraph}</p>
             </div>
-            <button onClick={() => handlePrevImg(-1)} className={styles.btnPrev}>
-              <i>
-                <GrPrevious style={{ color: '#fff !important' }} />
-              </i>
-            </button>
-            <button onClick={() => handleNextImg(1)} className={styles.btnNext}>
-              <i>
-                <GrNext />
-              </i>
-            </button>
+           {!mobile && 
+             <>
+                  <button onClick={() => handlePrevImg(-1)} className={styles.btnPrev}>
+               <i>
+                 <GrPrevious style={{ color: '#fff !important' }} />
+               </i>
+             </button>
+             <button onClick={() => handleNextImg(1)} className={styles.btnNext}>
+               <i>
+                 <GrNext />
+               </i>
+             </button>
+             </>
+           }
           </div>
         </div>
       </div>
